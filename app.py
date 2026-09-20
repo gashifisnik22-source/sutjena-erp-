@@ -1,17 +1,4 @@
-import os, sqlite3, hashlib
-from datetime import datetime
-from flask import (Flask, request, redirect, render_template_string, session, flash)
 
-app=Flask(__name__)
-app.secret_key="sutjena_mobile_2026"
-DB ="sutjena.db"
-conn=sqlite3.connect(DB,check_same_thread=False)
-conn.row_factory=sqlite3.Row
-c=conn.cursor()
-
-def h(p):return hashlib.sha256(p.encode()).hexdigest()
-
-c.executescript("""
 CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, user TEXT UNIQUE, pin TEXT, role TEXT);
 CREATE TABLE IF NOT EXISTS ngjyra(id INTEGER PRIMARY KEY, emri TEXT);
 CREATE TABLE IF NOT EXISTS madhesia(id INTEGER PRIMARY KEY, emri TEXT);

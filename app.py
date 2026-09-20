@@ -7,7 +7,7 @@ app.secret_key = "sutjena_mobile_2026"
 DB = "sutjena.db"
 conn = sqlite3.connect(DB, check_same_thread=False)
 conn.row_factory = sqlite3.Row
-c = conn.cursor()
+c=conn.cursor()
 
 def h(p): return hashlib.sha256(p.encode()).hexdigest()
 
